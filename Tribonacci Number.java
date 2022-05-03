@@ -1,0 +1,26 @@
+/*
+Link: "https://leetcode.com/problems/n-th-tribonacci-number/"
+1137. Nth Tribonacci Number
+      Easy
+      The Tribonacci sequence Tn is defined as follows: 
+      T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+      Given n, return the value of Tn.
+Input: n = 4
+Output: 4
+Explanation:
+T_3 = 0 + 1 + 1 = 2
+T_4 = 1 + 1 + 2 = 4      
+*/
+class Solution {
+    public int tribonacci(int n) {
+        if(n==0) return 0;
+        else if(n==1 || n==2) return 1;
+        else{
+            int[] f = new int[n+1];
+            f[0] = 0; f[1] = 1; f[2] = 1;
+            for(int i=3; i<=n; i++)
+                f[i] = f[i-1] + f[i-2] + f[i-3];
+            return f[n];
+        }
+    }
+}
