@@ -22,13 +22,10 @@ class Solution
     {
         if(sum <= (9*n)){
             String ans = "";
-            int i = 9;
             while(sum > 0){
-                if(sum-i >= 0){
-                    ans += i;
-                    sum -= i;
-                }
-                else i--;
+                int i = Math.min(sum,9);
+                ans += i;
+                sum -= i;
             }
             while(n > ans.length()) ans += 0;
             return ans;
